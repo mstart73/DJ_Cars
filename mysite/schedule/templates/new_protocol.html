@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title%}
+Protocol Res.Nb.: {{form['id_rez'].data}}
+{% endblock %}
+{% block content %}
+<h1>Protocol</h1>
+<div class="dialog">
+         <div class="row">
+   <div class="col-8">
+    <form method='post' action="{{url_for('schedule.show_protocol',idrez=form.id_rez.data)}}" class="p-3 border border-2"  >
+        {{ form.csrf_token }}
+
+            {% for field in form if not field.name in ["csrf_token","save","save_pdf","exit"] %}
+
+            <div class="row">
+                <div class="col-2">
+                    {{ field.label(class='col-11')}}:
+                </div>
+                <div class="col-6">
+                    {{ field(class='col-12')}}
+                </div>
+                <div class="col-4   ">
+                    <b>{{ " ".join(field.errors) }}</b>
+                </div>
+
+
+            </div>
+
+            {% endfor %}
+
+<div class="row">
+
+    {{form.save(class="btn btn-primary col-3 offset-1")}}
+
+    {{form.save_pdf(class="btn btn-primary col-3 offset-1")}}
+
+    <button class="btn btn-danger col-3 offset-1" onclick="goBack() " )>EXIT</button>
+</div>
+    </form>
+ </div>
+        <div class="col-4">
+            <img src="{{url_for('static',filename='car_exterior.png')}}">
+        </div>
+         </div>
+</div>
+
+{% endblock %}

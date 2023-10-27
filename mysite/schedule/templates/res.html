@@ -1,0 +1,79 @@
+
+<form action="{{url_for('schedule.updateres')}}" method="post" class="p-3 border border-2" target="'_blanc">
+
+    {{ form.csrf_token }}
+    <div class="row">
+        <div class="col-md-8">
+            {{form.hidden_tag()}}
+            <h4 class="has-text-centered">Reservation nb.: {{ form.id_r.data }}</h4>
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="mainbutton">
+             {{ form.protocol(class="btn btn-primary mt-3") }}
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-6 col-md-4">
+        <div class="row">
+            <div class="col-md-8">
+                {{ form.typ_r.label(class="label") }}<br>
+                {{ form.typ_r }}<br>
+                {%if form.typ_r.errors %}
+                {% for error in form.typ_r.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                {% endif %}
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                {{ form.date1_r.label(class="label") }}<br>
+                {{ form.date1_r(class="DateField")}} {{ form.time1_r(class="TimeField")}}<br>
+                {% for error in form.date1_r.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="col-6 col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                {{ form.date2_r.label(class="label") }}<br>
+                {{ form.date2_r(class= "DateTimeField") }}{{ form.time2_r(class="TimeField")}}<br>
+                {% for error in form.date2_r.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="col-6 col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                {{ form.id_car_r.label(class="label") }}<br>
+                {{ form.id_car_r }}<br>
+                {%if form.id_car_r.errors %}
+                {% for error in form.id_car_r.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div class="col-6 col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                {{ form.id_client_r.label(class="label") }}<br>
+                {{ form.id_client_r }}<br>
+                {% for error in form.id_client_r.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="col-6 col-md-4"></div>
+        </div>
+        <div class="mainbutton">
+            {{ form.submit(class="btn btn-primary mt-3" , onclick="validform()") }}
+        </div>
+</form>
+

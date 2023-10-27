@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title%}
+Scheduler
+{% endblock %}
+
+{% block content %}
+
+Scheduler
+
+
+<a class="brand-logo" href="">
+
+</a>
+</br>
+<div>
+<!-- dtt={'now_m_minus':now_m_minus,'now_w_minus':now_w_minus,'now_w_plus':now_w_plus,'now_m_plus':now_m_plus} !-->
+    <a class="btn btn-info" aria-current="page" href="{%url 'show_schedule' dt=now_m_minus %}"><< Month</a>
+    <a class="btn btn-info" aria-current="page" href="{%url 'show_schedule' dt=now_w_minus %}">< Week</a>
+    <a class="btn btn-info" aria-current="page" href="{%url 'show_schedule' dt=now_w_plus %}">Week ></a>
+    <a class="btn btn-info" aria-current="page" href="{%url 'show_schedule' dt=now_m_plus %}">Month >></a>
+</div>
+
+</br>
+<table   class="scheduler">
+
+
+    {{nag|safe}}
+
+
+    {% if sch %}
+
+
+    {% for k,s in sch.items %}
+    <tr>
+        <th class="w-auto"> {{ k }}</th>
+        <td  >{{s.1}}</td>
+
+         <td class="car_color_{{s.2}}" >{{ s.2}}</td>
+        {{ s.0|safe }}
+    </tr>
+
+
+    {% endfor %}
+</table>
+
+{% endif %}
+</br>
+<button  type="button" class="btn btn-success" onclick="shownew(0,'','')"> New reservation</button>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+{% endblock content %}

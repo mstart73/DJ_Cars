@@ -1,0 +1,56 @@
+{% block content  %}
+<a class="brand-logo" href="{% url 'index' %}">
+
+</a>
+
+<div class="dialog">
+
+    <form id='editForm' action="{{url_for('schedule.new_reservation')}}"  method="post" class="p-3 border border-2">
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        <div class="Register-Header">
+            <h4 class="has-text-centered mb-5 is-size-3">New Reservation</h4>
+        </div>
+
+        <p>
+            {{ form.typ_r.label(class="label") }}<br>
+            {{ form.typ_r }}<br>
+            {% for error in form.typ_r.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.date1_r.label(class="label") }}<br>
+            {{ form.date1_r(class="DateField")}} {{ form.time1_r(class="TimeField")}}<br>
+            {% for error in form.date1_r.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.date2_r.label(class="label") }}<br>
+            {{ form.date2_r(class="DateField")}} {{ form.time2_r(class="TimeField")}}<br>
+            {% for error in form.date2_r.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.id_car_r.label(class="label") }}<br>
+            {{ form.id_car_r }}<br>
+            {% for error in form.id_car_r.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.id_client_r.label(class="label") }}<br>
+            {{ form.id_client_r }}<br>
+            {% for error in form.id_client_r.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <div class="mainbutton">
+            {{ form.submit(class="btn btn-primary mt-3",onclick="validNewResform()") }}
+        </div>
+    </form>
+
+</div>
+{% endblock %}

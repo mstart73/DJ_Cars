@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title%}
+TYPES OF RESERVATION
+{% endblock %}
+
+
+{% block content %}
+
+
+<a class="brand-logo" href="{{ url_for('index') }}">
+
+</a>
+
+<!-- Display login error message-->
+
+{% if typall %}
+
+
+
+<table class="table table-striped">
+    <th>NB TYPE</th>
+    <th>NAME OF TYPE</th>
+    <th>COLOR</th>
+    <th>COLOR NAME</th>
+
+    <th></th>
+
+    {% for s in typall %}
+    <tr>
+        <td> {{ s.id_typ }}</td>
+        <td> {{ s.name_typ }}</td>
+        <td style="background-color:{{s.color}};"> </td>
+        <td> {{ s.name_color }}</td>
+        <td><a href="{{url_for('schedule.show_type',idtype=s.id_typ)}}" target="_blanc"><img src="{{url_for('schedule.static',filename='ic_search_black_18dp.png')}}"> </a> </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endif %}
+
+<a href="{{url_for('schedule.new_type')}}" target="_blanc">New type</a>
+{% endblock %}

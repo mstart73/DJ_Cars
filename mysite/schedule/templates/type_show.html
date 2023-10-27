@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+
+
+{% block content %}
+
+
+<a class="brand-logo" href="{{ url_for('index') }}">
+
+</a>
+
+<!-- Display login error message-->
+
+{% if typall %}
+
+
+
+<table class="table table-striped">
+    <th>NB TYPE</th>
+    <th>NAME OF TYPE</th>
+    <th>COLOR</th>
+    <th>COLOR NAME</th>
+
+    <th></th>
+
+
+    <tr>
+        <td> {{ typall.id_typ }}</td>
+        <td> {{ typall.name_typ }}</td>
+        <td> {{ typall.color }}</td>
+        <td> {{ typall.name_color }}</td>
+     </tr>
+
+</table>
+
+{% endif %}
+
+<a href="{{url_for('schedule.new_type')}}">New type</a>
+{% endblock %}

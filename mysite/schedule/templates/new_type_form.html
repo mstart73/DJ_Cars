@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title%}
+NEW RESERVATION TYPE
+{% endblock %}
+
+
+{{ colorpicker.loader() }}
+{{ colorpicker.picker(ids=['#color']) }}
+{% block content %}
+
+
+
+<a class="brand-logo" href="{{ url_for('index') }}">
+
+</a>
+
+<div class="dialog">
+    <form action="" method="post" class="p-3 border border-2">
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        <div class="Register-Header">
+            <h4 class="has-text-centered mb-5 is-size-3">New Schedule Type</h4>
+        </div>
+
+        <p>
+            {{ form.name_typ.label(class="label") }}<br>
+            {{ form.name_typ }}<br>
+            {% for error in form.name_typ.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            Type Color:<br>
+            {{ form.color }}<br>
+            {% for error in form.color.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.name_color.label(class="label") }}<br>
+            {{ form.name_color }}<br>
+            {% for error in form.name_color.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <div class="mainbutton">
+            {{ form.submit(class="btn btn-primary mt-3") }}
+        </div>
+    </form>
+
+</div>
+{% endblock %}

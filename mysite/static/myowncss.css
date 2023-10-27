@@ -1,0 +1,42 @@
+body {background-color: grey!important;}
+html {background-color: grey!important;}
+
+
+.modal-content {background-color: RGB(150,200,220)!important;}
+.modal-header {background-color: RGB(110,200,220)!important;}
+
+.typreservation0 {background-color: white;}
+
+.typreservation1 {background-color: yellow;}
+
+.typreservation2 {background-color: orange;}
+
+.typreservation3 {background-color: red;}
+
+.typreservation4 {background-color: blue;}
+
+.typreservation5 {background-color: green;}
+
+.scheduler
+{
+background-color: light-gray !important;
+width: 80% !important;
+table-layout: fixed !important;
+word-wrap: break-word !important;
+border: 4px solid;
+border-color: dark-blue!important;
+
+}
+.scheduler th {border: 2px solid;border-color: dark-grey!important;}
+.scheduler td {border: 1px solid;border-color: dark-grey!important;}
+
+.scheduler {background-color: RGB(150,100,100);}
+
+.car_color_WH01 {background-color: RGB(255,255,255); }
+.car_color_RE01 {background-color: RGB(255,50,50); }
+.car_color_GR01 {background-color: RGB(200,200,200); }
+.car_color_B002 {background-color: RGB(50,50,255); }
+
+table th, table td {
+            overflow: hidden;
+        }
