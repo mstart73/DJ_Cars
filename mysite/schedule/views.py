@@ -1,20 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
 from django.utils.timezone import now
 from datetime import datetime
 from datetime import timedelta
-from .models import Schedule, Car
+from .models import Schedule
+
 from django.utils import timezone
 from django.template import loader
-from django import template
 
+from django.contrib.auth.decorators import login_required
 
-def dict_from_class(cls):
-    return dict(
-        (key, value)
-        for (key, value) in cls.__dict__.items()
+from django.urls import reverse
 
-    )
 
 
 def getmydate(daty, l):
@@ -24,7 +22,23 @@ def getmydate(daty, l):
         return l
 
 
+def show_types(request):
+    return HttpResponse("Hello, world. You're at the cars index.")
+
+
+@login_required
+def new_reservation(request):
+    context=locals()
+
+    return render( request,'new_reservation_form.html',context)
+
+
 def show_schedule(request, dt=now().strftime('%Y-%m-%d %H:%M:%S')):
+
+
+
+
+
     # print("dt1",dt,type(dt))
     vins = {}
     vin_line = {}
@@ -176,6 +190,8 @@ def show_schedule(request, dt=now().strftime('%Y-%m-%d %H:%M:%S')):
             vin_line[k] = [line, v[0][6], v[0][7]]
 
     template = loader.get_template("schedule.html")
+
+
     context = {
         "sch": vin_line,
         "ilr": vins,
@@ -186,6 +202,10 @@ def show_schedule(request, dt=now().strftime('%Y-%m-%d %H:%M:%S')):
         "now_w_plus":now_w_plus,
         "now_m_minus":now_m_minus,
         "now_w_minus":now_w_minus,
+
+
+
+
     }
 
 

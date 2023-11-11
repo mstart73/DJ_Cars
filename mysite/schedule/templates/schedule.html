@@ -1,16 +1,16 @@
+
 {% extends "base.html" %}
+
 {% block title%}
-Scheduler
+Schedule
 {% endblock %}
 
 {% block content %}
 
-Scheduler
+{% load simple_menu %}
+{% generate_menu %}
+{% include 'menuall.html' %}
 
-
-<a class="brand-logo" href="">
-
-</a>
 </br>
 <div>
 <!-- dtt={'now_m_minus':now_m_minus,'now_w_minus':now_w_minus,'now_w_plus':now_w_plus,'now_m_plus':now_m_plus} !-->
@@ -45,7 +45,7 @@ Scheduler
 
 {% endif %}
 </br>
-<button  type="button" class="btn btn-success" onclick="shownew(0,'','')"> New reservation</button>
+<a class="btn btn-info" aria-current="page" href="{%url 'new_reservation' %}">New reservation >></a>
 
 <!-- Button trigger modal -->
 

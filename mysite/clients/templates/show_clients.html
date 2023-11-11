@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title%}
+CLIENTS
+{% endblock %}
+{% block content %}
+
+
+<a class="brand-logo" href="{{ url_for('index') }}">
+
+</a>
+
+<!-- Display login error message-->
+
+{% if clients %}
+
+
+<table class="table table-striped">
+    <th>NAME</th>
+    <th>COMPANY NAME</th>
+    <th>STREET</th>
+    <th>BUILDING NB.</th>
+    <th>POSTAL CODE</th>
+    <th>CITY</th>
+    <th>EMAIL</th>
+    <th>PHONE</th>
+    <th>CONCACT PERSON</th>
+    <th>AGREE FOR EMAIL/PHONE</th>
+    <th></th>
+
+    {% for s in clients %}
+    <tr>
+        <td> {{ s.name }}</td>
+        <td> {{ s.company }}</td>
+        <td> {{ s.adress_street }}</td>
+        <td> {{ s.adress_nb }}</td>
+        <td> {{ s.adress_postal }}</td>
+        <td> {{ s.adress_city }}</td>
+        <td> {{ s.email }}</td>
+        <td> {{ s.phone }}</td>
+        <td> {{ s.person }}</td>
+        <td> {{ s.agree }}</td>
+        <td><a href="{{url_for('client.show_client',idclient=s.id_client)}}"> </a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endif %}
+
+<a href="{{url_for('client.new_client')}}">New client</a>
+{% endblock %}

@@ -2,22 +2,23 @@
 <nav class="navbar bg-primary" data-bs-theme="dark">
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="{{url 'schedule.show_schedule' dt=now %}">SCHEDULER</a>
+            <a class="nav-link " aria-current="page" href="{% url 'show_schedule' dt=dtt %}">SCHEDULER</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'car.show_cars' %}">CARS</a>
+            <a class="nav-link" href="{% url 'show_cars' %}">CARS</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'schedule.show_types' %}">TYPES</a>
+            <a class="nav-link" href="{% url 'show_types' %}">TYPES</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'client.show_clients' %}">CLIENTS</a>
+            <a class="nav-link" href="{% url 'show_clients' %}">CLIENTS</a>
         </li>
     </ul>
+
     {% if current_user %}
 
-    <a href="{{url_for('auth.logout')}}">
-        User : {{current_user.username}} <b>logout</b>
+    <a href="">
+        User :  <b>logout</b>
     </a>
     {% endif %}
 

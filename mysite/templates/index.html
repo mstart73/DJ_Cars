@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>CAR ORGANIZER</title>
-</head>
-<body>
-
-<a href="" > LOGIN</a>
+{% extends "base.html" %}
+{% block content %}
+<a href="{% url 'login' %}" > LOGIN</a>
+<a href="{% url 'show_schedule' dt=dtt %}" > SCHEDULER</a>
 <p>
     Hello in car organizer.
 
@@ -18,5 +13,4 @@
 </b>
 </p>
 {% endif %}
-</body>
-</html>
+{% endblock content %}

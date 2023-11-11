@@ -1,0 +1,20 @@
+
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+
+            {% include 'menu.html' with menu=menus navbar_class="ms-auto" %}
+        </div>
+    </nav>
+    {% if has_submenu %}
+        <nav class="navbar navbar-expand navbar-light bg-light"
+             style="height:2.75rem">
+            <div class="container">
+                {% include 'menu.html' with menu=submenu %}
+            </div>
+        </nav>
+    {% endif %}
+
+<a class="brand-logo" href="">
+
+</a>

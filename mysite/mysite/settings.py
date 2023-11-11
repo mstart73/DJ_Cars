@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-
+from django.utils.timezone import now
+from datetime import datetime
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -36,9 +37,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "cars.apps.CarsConfig",
-    "schedule.apps.ScheduleConfig",
     'bootstrap_modal_forms',
+    'accounts',
+    'simple_menu',
+    "cars",
+    "schedule",
+    'clients',
+    'bootstrap5',
+
+
 
 
 ]
@@ -54,12 +61,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "mysite.urls"
-
+TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,7 +79,7 @@ TEMPLATES = [
     },
 ]
 WSGI_APPLICATION = "mysite.wsgi.application"
-
+APPEND_SLASH = True
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -124,3 +131,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+MENU_SELECT_PARENTS = True
+
+LOGIN_URL='login'
+
+LOGIN_REDIRECT_URL= 'show_schedule'
+
+LOGOUT_REDIRECT_URL='login'

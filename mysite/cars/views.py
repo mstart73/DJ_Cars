@@ -5,6 +5,6 @@ from datetime import timedelta
 
 
 
-def index(request):
+def show_cars(request):
     return HttpResponse("Hello, world. You're at the cars index.")
 

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title%}
+NEW CLIENT
+{% endblock %}
+{% block content %}
+
+
+<a class="brand-logo" href="{{ url_for('index') }}">
+
+</a>
+
+<div class="dialog">
+    <form action="" method="post" class="p-3 border border-2">
+        {{ form.hidden_tag() }}
+        <div class="Register-Header">
+            <h4 class="has-text-centered mb-5 is-size-3">New Client</h4>
+        </div>
+
+        <p>
+            {{ form.name.label(class="label") }}<br>
+            {{ form.name }}<br>
+            {% for error in form.name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.company.label(class="label") }}<br>
+            {{ form.company }}<br>
+            {% for error in form.company.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.adress_street.label(class="label") }}<br>
+            {{ form.adress_street }}<br>
+            {% for error in form.adress_street.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.adress_nb.label(class="label") }}<br>
+            {{ form.adress_nb }}<br>
+            {% for error in form.adress_nb.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.adress_postal.label(class="label") }}<br>
+            {{ form.adress_postal }}<br>
+            {% for error in form.adress_postal.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.adress_city.label(class="label") }}<br>
+            {{ form.adress_city }}<br>
+            {% for error in form.adress_city.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.email.label(class="label") }}<br>
+            {{ form.email }}<br>
+            {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.phone.label(class="label") }}<br>
+            {{ form.phone }}<br>
+            {% for error in form.phone.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.person.label(class="label") }}<br>
+            {{ form.person }}<br>
+            {% for error in form.person.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.agree.label(class="label") }}<br>
+            {{ form.agree }}<br>
+            {% for error in form.agree.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <div class="mainbutton">
+            {{ form.submit(class="btn btn-primary mt-3") }}
+        </div>
+    </form>
+
+</div>
+{% endblock %}
